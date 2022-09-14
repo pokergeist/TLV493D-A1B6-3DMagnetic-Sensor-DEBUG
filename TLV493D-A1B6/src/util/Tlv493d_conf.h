@@ -128,15 +128,15 @@ const RegMask_t regMasks[] = {
 };
 
 const AccessMode_t accModes[] = {
-	{ 0, 0, 0, 1000 },	// POWERDOWNMODE (TLV493D_DEFAULTMODE) [set FAST=0, LP=0]
-                      //                        /F /LP /LPP 1000   no sampling/acquisition
-	{ 1, 0, 0, 0 },			// FASTMODE                F /LP /LPP    0   INT 3.3kHz (period=303us)  OSC driven
-	{ 0, 1, 1, 10 },		// LOWPOWERMODE           /F  LP  LPP   10   INT  100Hz ( 10ms)         OSC driven
-	{ 0, 1, 0, 100 },		// ULTRALOWPOWERMODE      /F  LP /LPP  100   INT   10Hz (100ms)         OSC driven
-	{ 1, 1, 1, 10 }			// MASTERCONTROLLEDMODE    F  LP  LPP   10   opt  variable to 3.3KHz   Read driven
-};/*|  |  |  |
+  { 0, 0, 0, 1000 },	// POWERDOWNMODE (TLV493D_DEFAULTMODE) [set FAST=0, LP=0]
+                      //                        /F /LP /LPP  1000   no sampling/acquisition
+  { 1, 0, 0, 0 },     // FASTMODE                F /LP /LPPx    0   INT 3.3kHz (period=303us)  OSC driven
+  { 0, 1, 1, 10 },    // LOWPOWERMODE           /F  LP  LPP    10   INT  100Hz ( 10ms)         OSC driven
+  { 0, 1, 0, 100 },   // ULTRALOWPOWERMODE      /F  LP /LPP   100   INT   10Hz (100ms)         OSC driven
+  { 1, 1, 1, 10 }     // MASTERCONTROLLEDMODE    F  LP  LPPx   10   opt  variable to 3.3KHz   Read driven
+};/*|  |  |  |                                  ^^ ... values per UserGuide 5.x
     |  |  |  +- Measurement Delay (wait to read after changing to MASTERCONTROLLEDMODE, 10ms/100Hz)
-    |  |  +- Low Power Period 0=100ms, 1=12ms
+    |  |  +- Low Power Period 0=100ms (Ultra Low Power Mode), 1=12ms. "_" = Don't care value in WReg03
     |  +- Low Power, 0 to disable
     +- Fast Mode, 0 to disable
 */
