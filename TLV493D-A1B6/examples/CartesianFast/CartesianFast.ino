@@ -5,7 +5,7 @@
 Tlv493d Tlv493dMagnetic3DSensor = Tlv493d();
 
 uint32_t line_counter;
-int      free_mem, free_mem_min;
+int      free_mem, free_mem_min, free_mem_hits;
 
 void setup() {
   Serial.begin(9600);
@@ -20,6 +20,7 @@ void setup() {
   Tlv493dMagnetic3DSensor.setAccessMode(Tlv493dMagnetic3DSensor.MASTERCONTROLLEDMODE);
   Tlv493dMagnetic3DSensor.disableTemp();
   free_mem_min = freeMemory();
+  free_mem_hits = -1;
 }
 
 void loop() {
@@ -31,6 +32,7 @@ void loop() {
       Serial.print(" ***********************************");
       free_mem_min = free_mem;
       Serial.println();
+      free_mem_hits++;
       delay(2e3);
     }
   }
@@ -48,6 +50,8 @@ void loop() {
       Serial.print(Tlv493dMagnetic3DSensor.acquisition_errors);
       Serial.print('/');
       Serial.print(Tlv493dMagnetic3DSensor.frame_count_errors);
+      Serial.print('/');
+      Serial.print(free_mem_hits);
       Serial.println(')');
       break;
     case TLV493D_BUS_ERROR:
