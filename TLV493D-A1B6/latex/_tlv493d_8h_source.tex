@@ -1,0 +1,123 @@
+\hypertarget{_tlv493d_8h_source}{}\doxysection{Tlv493d.\+h}
+\label{_tlv493d_8h_source}\index{src/Tlv493d.h@{src/Tlv493d.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#ifndef TLV493D\_H\_INCLUDED}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define TLV493D\_H\_INCLUDED}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 }
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include <Arduino.h>}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include <Wire.h>}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include "{}./util/BusInterface.h"{}}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}./util/Tlv493d\_conf.h"{}}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} Tlv493d\_Address}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44     TLV493D\_ADDRESS1    =   0x5E,}
+\DoxyCodeLine{45     TLV493D\_ADDRESS2    =   0x1F}
+\DoxyCodeLine{46 \}Tlv493d\_Address\_t;}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48 }
+\DoxyCodeLine{49 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} Tlv493d\_Error}
+\DoxyCodeLine{50 \{}
+\DoxyCodeLine{51     TLV493D\_NO\_ERROR    =   0,}
+\DoxyCodeLine{52     TLV493D\_BUS\_ERROR   =   1,}
+\DoxyCodeLine{53     TLV493D\_FRAME\_ERROR =   2}
+\DoxyCodeLine{54 \}Tlv493d\_Error\_t;}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{comment}{/*}}
+\DoxyCodeLine{58 \textcolor{comment}{ * TLV493D\_ACCELERATE\_READOUT lets the controller just read out the first 3 bytes when in fast mode. }}
+\DoxyCodeLine{59 \textcolor{comment}{ * This makes the readout faster (half of usual transfer duration), but there is no way to get }}
+\DoxyCodeLine{60 \textcolor{comment}{ * temperature, current channel or high precision (only 8 instead of 12 bits for x, y, z)}}
+\DoxyCodeLine{61 \textcolor{comment}{ * It is necessary for slow I2C busses to read the last result before the new measurement is completed. }}
+\DoxyCodeLine{62 \textcolor{comment}{ * It only takes effect in FASTMODE, not in other modes. }}
+\DoxyCodeLine{63 \textcolor{comment}{ *}}
+\DoxyCodeLine{64 \textcolor{comment}{ * Feel free to undefine this and increase your I2C bus speed if you need to. }}
+\DoxyCodeLine{65 \textcolor{comment}{ */}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#define TLV493D\_ACCELERATE\_READOUT}}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69 \textcolor{keyword}{class }\mbox{\hyperlink{class_tlv493d}{Tlv493d}} \{}
+\DoxyCodeLine{70 \textcolor{keyword}{public}: }
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \mbox{\hyperlink{class_tlv493d_a68713d34efe705f318c653b19324e901}{Tlv493d}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{73     \mbox{\hyperlink{class_tlv493d}{\string~Tlv493d}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{74     \textcolor{keywordtype}{void} begin(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{75     \textcolor{keywordtype}{void} begin(TwoWire \&bus);}
+\DoxyCodeLine{76     \textcolor{keywordtype}{void} begin(TwoWire \&bus, Tlv493d\_Address\_t slaveAddress, \textcolor{keywordtype}{bool} reset);}
+\DoxyCodeLine{77     \textcolor{keywordtype}{void} end(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{78     }
+\DoxyCodeLine{79     \textcolor{comment}{// sensor configuration}}
+\DoxyCodeLine{80     \textcolor{comment}{/* sets the data access mode for TLE493D}}
+\DoxyCodeLine{81 \textcolor{comment}{     * Tle493d is initially in POWERDOWNMODE}}
+\DoxyCodeLine{82 \textcolor{comment}{     * use POWERDOWNMODE for rare and infrequent measurements }}
+\DoxyCodeLine{83 \textcolor{comment}{     *  Tle493d will automatically switch to MASTERCONTROLLEDMODE for one measurement if on a readout}}
+\DoxyCodeLine{84 \textcolor{comment}{     *  measurements are quite slow in this mode. The power consumption is very low between measurements. }}
+\DoxyCodeLine{85 \textcolor{comment}{     * use MASTERCONTROLLEDMODE for low measurement frequencies where results do not have to be up-\/to-\/date}}
+\DoxyCodeLine{86 \textcolor{comment}{     *  In this mode a new measurement starts directly after the last result has been read out. }}
+\DoxyCodeLine{87 \textcolor{comment}{     * use LOWPOWERMODE and ULTRALOWPOWERMODE for continuous measurements}}
+\DoxyCodeLine{88 \textcolor{comment}{     *  each readout returns the latest measurement results}}
+\DoxyCodeLine{89 \textcolor{comment}{     * use FASTMODE for for continuous measurements on high frequencies}}
+\DoxyCodeLine{90 \textcolor{comment}{     *  measurement time might be higher than the time necessary for I2C-\/readouts in this mode. }}
+\DoxyCodeLine{91 \textcolor{comment}{     *  Note: Thus, this mode requires a non-\/standard 1MHz I2C clock to be used to read the data fast enough.}}
+\DoxyCodeLine{92 \textcolor{comment}{     */}}
+\DoxyCodeLine{93     \textcolor{keyword}{enum} AccessMode\_e}
+\DoxyCodeLine{94     \{}
+\DoxyCodeLine{95         POWERDOWNMODE = 0,}
+\DoxyCodeLine{96         FASTMODE,}
+\DoxyCodeLine{97         LOWPOWERMODE,}
+\DoxyCodeLine{98         ULTRALOWPOWERMODE,}
+\DoxyCodeLine{99         MASTERCONTROLLEDMODE,}
+\DoxyCodeLine{100     \};}
+\DoxyCodeLine{101     \textcolor{keywordtype}{bool} setAccessMode(AccessMode\_e mode);}
+\DoxyCodeLine{102     \textcolor{comment}{// interrupt is disabled by default}}
+\DoxyCodeLine{103     \textcolor{comment}{// it is recommended for FASTMODE, LOWPOWERMODE and ULTRALOWPOWERMODE}}
+\DoxyCodeLine{104     \textcolor{comment}{// the interrupt is indicated with a short(1.5 us) low pulse on SCL}}
+\DoxyCodeLine{105     \textcolor{comment}{// you need to capture and react(read the new results) to it by yourself}}
+\DoxyCodeLine{106     \textcolor{keywordtype}{void} enableInterrupt(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{107     \textcolor{keywordtype}{void} disableInterrupt(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{108     \textcolor{comment}{// temperature measurement is enabled by default}}
+\DoxyCodeLine{109     \textcolor{comment}{// it can be disabled to reduce power consumption}}
+\DoxyCodeLine{110     \textcolor{keywordtype}{void} enableTemp(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{111     \textcolor{keywordtype}{void} disableTemp(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{112     }
+\DoxyCodeLine{113     \textcolor{comment}{// returns the recommended time between two readouts for the sensor's current configuration}}
+\DoxyCodeLine{114     uint16\_t getMeasurementDelay(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{115     \textcolor{comment}{// read measurement results from sensor}}
+\DoxyCodeLine{116     Tlv493d\_Error\_t updateData(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{117     }
+\DoxyCodeLine{118     \textcolor{comment}{// fieldvector in Cartesian coordinates}}
+\DoxyCodeLine{119     \textcolor{keywordtype}{float} getX(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{120     \textcolor{keywordtype}{float} getY(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{121     \textcolor{keywordtype}{float} getZ(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{122     }
+\DoxyCodeLine{123     \textcolor{comment}{// fieldvector in spherical coordinates}}
+\DoxyCodeLine{124     \textcolor{keywordtype}{float} getAmount(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{125     \textcolor{keywordtype}{float} getAzimuth(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{126     \textcolor{keywordtype}{float} getPolar(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{127     }
+\DoxyCodeLine{128     \textcolor{comment}{// temperature}}
+\DoxyCodeLine{129     \textcolor{keywordtype}{float} getTemp(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{130     }
+\DoxyCodeLine{131 \textcolor{keyword}{private}: }
+\DoxyCodeLine{132     \mbox{\hyperlink{structtlv493d_1_1_bus_interface__t}{tlv493d::BusInterface\_t}} mInterface;}
+\DoxyCodeLine{133     AccessMode\_e mMode;}
+\DoxyCodeLine{134     int16\_t mXdata;}
+\DoxyCodeLine{135     int16\_t mYdata;}
+\DoxyCodeLine{136     int16\_t mZdata;}
+\DoxyCodeLine{137     int16\_t mTempdata;}
+\DoxyCodeLine{138     uint8\_t mExpectedFrameCount;}
+\DoxyCodeLine{139     }
+\DoxyCodeLine{140 }
+\DoxyCodeLine{141     \textcolor{keywordtype}{void} resetSensor(uint8\_t adr);}
+\DoxyCodeLine{142     \textcolor{keywordtype}{void} setRegBits(uint8\_t regMaskIndex, uint8\_t data);}
+\DoxyCodeLine{143     uint8\_t getRegBits(uint8\_t regMaskIndex);}
+\DoxyCodeLine{144     \textcolor{keywordtype}{void} calcParity(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{145     int16\_t concatResults(uint8\_t upperByte, uint8\_t lowerByte, \textcolor{keywordtype}{bool} upperFull);}
+\DoxyCodeLine{146 \};}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148 \textcolor{preprocessor}{\#endif      }\textcolor{comment}{/* TLV493D\_H\_INCLUDED */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

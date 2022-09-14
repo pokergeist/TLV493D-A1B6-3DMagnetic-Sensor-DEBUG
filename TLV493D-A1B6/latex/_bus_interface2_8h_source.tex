@@ -1,0 +1,27 @@
+\hypertarget{_bus_interface2_8h_source}{}\doxysection{Bus\+Interface2.\+h}
+\label{_bus_interface2_8h_source}\index{src/util/BusInterface2.h@{src/util/BusInterface2.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#ifndef TLV493D\_BUSIF\_2\_H\_INCLUDED}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define TLV493D\_BUSIF\_2\_H\_INCLUDED}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include "{}BusInterface.h"{}}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define BUS\_ERROR   1}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define BUS\_OK      0}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{namespace }tlv493d}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     }
+\DoxyCodeLine{44 \textcolor{keywordtype}{void} initInterface(BusInterface\_t *interface, TwoWire *bus, uint8\_t adress);}
+\DoxyCodeLine{45 \textcolor{keywordtype}{bool} readOut(BusInterface\_t *interface);}
+\DoxyCodeLine{46 \textcolor{keywordtype}{bool} readOut(BusInterface\_t *interface, uint8\_t count);}
+\DoxyCodeLine{47 \textcolor{keywordtype}{bool} writeOut(BusInterface\_t *interface);}
+\DoxyCodeLine{48 \textcolor{keywordtype}{bool} writeOut(BusInterface\_t *interface, uint8\_t count);}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

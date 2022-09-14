@@ -1,0 +1,120 @@
+\hypertarget{class_tlv493d}{}\doxysection{Tlv493d Class Reference}
+\label{class_tlv493d}\index{Tlv493d@{Tlv493d}}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tlv493d_af90827e576a4df69fb00cdb895e29661}\label{class_tlv493d_af90827e576a4df69fb00cdb895e29661}} 
+enum {\bfseries Access\+Mode\+\_\+e} \{ \newline
+{\bfseries POWERDOWNMODE} = 0
+, {\bfseries FASTMODE}
+, {\bfseries LOWPOWERMODE}
+, {\bfseries ULTRALOWPOWERMODE}
+, \newline
+{\bfseries MASTERCONTROLLEDMODE}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_tlv493d_a68713d34efe705f318c653b19324e901}{Tlv493d}} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_a87db42bc6f4f184a6f4b5d5c7dadb33e}\label{class_tlv493d_a87db42bc6f4f184a6f4b5d5c7dadb33e}} 
+void {\bfseries begin} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_abe2d30ddda56638bb4da7ecc92329f88}\label{class_tlv493d_abe2d30ddda56638bb4da7ecc92329f88}} 
+void {\bfseries begin} (Two\+Wire \&bus)
+\item 
+void \mbox{\hyperlink{class_tlv493d_a0b9d615fe9774f97f5b573795f3536eb}{begin}} (Two\+Wire \&bus, Tlv493d\+\_\+\+Address\+\_\+t slave\+Address, bool reset)
+\item 
+\mbox{\Hypertarget{class_tlv493d_aa479cd5502d9c52842927be0d2c66fa1}\label{class_tlv493d_aa479cd5502d9c52842927be0d2c66fa1}} 
+void {\bfseries end} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_a46b4427047967b71d68b17e5790360db}\label{class_tlv493d_a46b4427047967b71d68b17e5790360db}} 
+bool {\bfseries set\+Access\+Mode} (Access\+Mode\+\_\+e mode)
+\item 
+\mbox{\Hypertarget{class_tlv493d_a1606d5220cb2a4180ab885ae0994d940}\label{class_tlv493d_a1606d5220cb2a4180ab885ae0994d940}} 
+void {\bfseries enable\+Interrupt} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_abaea0cddf2ddb7677a6c73328e98de27}\label{class_tlv493d_abaea0cddf2ddb7677a6c73328e98de27}} 
+void {\bfseries disable\+Interrupt} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_acc397e1f626dccb8b431cab93c3c33bf}\label{class_tlv493d_acc397e1f626dccb8b431cab93c3c33bf}} 
+void {\bfseries enable\+Temp} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_ac3c6d11fceeef6218e3f84b2a1386526}\label{class_tlv493d_ac3c6d11fceeef6218e3f84b2a1386526}} 
+void {\bfseries disable\+Temp} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_a1ffcbe7a7e5f27fb5ae67a8df52a17df}\label{class_tlv493d_a1ffcbe7a7e5f27fb5ae67a8df52a17df}} 
+uint16\+\_\+t {\bfseries get\+Measurement\+Delay} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_a07d2b30c18fc093b637ea1baa089122c}\label{class_tlv493d_a07d2b30c18fc093b637ea1baa089122c}} 
+Tlv493d\+\_\+\+Error\+\_\+t {\bfseries update\+Data} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_a07e3723fd0ba83ea60ec0f7c92f9cfdb}\label{class_tlv493d_a07e3723fd0ba83ea60ec0f7c92f9cfdb}} 
+float {\bfseries getX} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_ad8bce013a8826ab82022b22902962f55}\label{class_tlv493d_ad8bce013a8826ab82022b22902962f55}} 
+float {\bfseries getY} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_ac9ed109dae4ed25b18182ab66d8447cd}\label{class_tlv493d_ac9ed109dae4ed25b18182ab66d8447cd}} 
+float {\bfseries getZ} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_af75b5fea949a0f98420092fb52196716}\label{class_tlv493d_af75b5fea949a0f98420092fb52196716}} 
+float {\bfseries get\+Amount} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_a4c9419a8fead0ceb4c33bd09c44ac4b7}\label{class_tlv493d_a4c9419a8fead0ceb4c33bd09c44ac4b7}} 
+float {\bfseries get\+Azimuth} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_a67b74ef727c79bcd3eeb3b26bc39f483}\label{class_tlv493d_a67b74ef727c79bcd3eeb3b26bc39f483}} 
+float {\bfseries get\+Polar} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_a56d3df72b010da80fa58bb7aa202a1c7}\label{class_tlv493d_a56d3df72b010da80fa58bb7aa202a1c7}} 
+float {\bfseries get\+Temp} (void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_tlv493d_a68713d34efe705f318c653b19324e901}\label{class_tlv493d_a68713d34efe705f318c653b19324e901}} 
+\index{Tlv493d@{Tlv493d}!Tlv493d@{Tlv493d}}
+\index{Tlv493d@{Tlv493d}!Tlv493d@{Tlv493d}}
+\doxysubsubsection{\texorpdfstring{Tlv493d()}{Tlv493d()}}
+{\footnotesize\ttfamily Tlv493d\+::\+Tlv493d (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Tlv493d.\+cpp -\/ Library for Arduino to control the TLV493\+D-\/\+A1\+B6 3D magnetic sensor.
+
+The 3D magnetic sensor TLV493\+D-\/\+A1\+B6 offers accurate three dimensional sensing with extremely low power consumption in a small 6-\/pin package. With an opportunity to detect the magnetic field in x, y, and z-\/direction the sensor is ideally suited for the measurement of 3D movements, linear movements and rotation movements.
+
+Have a look at the application note/reference manual for more information.
+
+Copyright (c) 2018 Infineon Technologies AG
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+: ~\newline
+
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. ~\newline
+
+
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution. ~\newline
+
+
+Neither the name of the copyright holders nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. ~\newline
+
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \char`\"{}\+AS IS\char`\"{} AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE ~\newline
+ DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR ~\newline
+ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ~\newline
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tlv493d_a0b9d615fe9774f97f5b573795f3536eb}\label{class_tlv493d_a0b9d615fe9774f97f5b573795f3536eb}} 
+\index{Tlv493d@{Tlv493d}!begin@{begin}}
+\index{begin@{begin}!Tlv493d@{Tlv493d}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void Tlv493d\+::begin (\begin{DoxyParamCaption}\item[{Two\+Wire \&}]{bus,  }\item[{Tlv493d\+\_\+\+Address\+\_\+t}]{slave\+Address,  }\item[{bool}]{reset }\end{DoxyParamCaption})}
+
+Workaround for kit2go vdd enable
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Tlv493d.\+h\item 
+src/Tlv493d.\+cpp\end{DoxyCompactItemize}

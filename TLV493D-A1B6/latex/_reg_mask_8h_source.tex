@@ -1,0 +1,32 @@
+\hypertarget{_reg_mask_8h_source}{}\doxysection{Reg\+Mask.\+h}
+\label{_reg_mask_8h_source}\index{src/util/RegMask.h@{src/util/RegMask.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#ifndef TLV493D\_REGMASK\_H\_INCLUDED}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define TLV493D\_REGMASK\_H\_INCLUDED}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include <Arduino.h>}}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#define REGMASK\_READ    0}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define REGMASK\_WRITE   1}}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41 \textcolor{keyword}{namespace }tlv493d}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{45 \{}
+\DoxyCodeLine{46     uint8\_t rw;}
+\DoxyCodeLine{47     uint8\_t byteAdress;}
+\DoxyCodeLine{48     uint8\_t bitMask;}
+\DoxyCodeLine{49     uint8\_t shift; \textcolor{comment}{// SHR}}
+\DoxyCodeLine{50 \} \mbox{\hyperlink{structtlv493d_1_1_reg_mask__t}{RegMask\_t}};}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52 uint8\_t getFromRegs(\textcolor{keyword}{const} \mbox{\hyperlink{structtlv493d_1_1_reg_mask__t}{RegMask\_t}} *mask, uint8\_t *regData);}
+\DoxyCodeLine{53 uint8\_t setToRegs(\textcolor{keyword}{const} \mbox{\hyperlink{structtlv493d_1_1_reg_mask__t}{RegMask\_t}} *mask, uint8\_t *regData, uint8\_t toWrite);}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \}}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

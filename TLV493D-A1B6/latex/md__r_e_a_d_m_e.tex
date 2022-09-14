@@ -1,0 +1,57 @@
+\href{https://travis-ci.org/Infineon/TLV493D-A1B6-3DMagnetic-Sensor}{\texttt{ }}
+
+ 
+
+Library of Infineon\textquotesingle{}s \href{https://www.infineon.com/cms/en/product/sensor/magnetic-sensors/magnetic-position-sensors/3d-magnetics/tlv493d-a1b6/}{\texttt{ TLV493\+D-\/\+A1\+B6 3D magnetic sensor}} for Arduino.\hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysection{Summary}\label{md__r_e_a_d_m_e_autotoc_md3}
+The 3D magnetic sensor TLV493\+D-\/\+A1\+B6 offers accurate three-\/dimensional sensing with extremely low power consumption in a small 6-\/pin package. With its magnetic field detection in x, y, and z-\/direction the sensor reliably measures three-\/dimensional, linear and rotation movements. Applications include joysticks, control elements (white goods, multifunction knops), or electric meters (anti tampering) and any other application that requires accurate angular measurements or low power consumptions. The integrated temperature sensor can furthermore be used for plausibility checks.
+
+Key features are 3D magnetic sensing with a very low power consumption during operations. The sensor has a digital output via 2-\/wire based standard I2C interface up to 1 MBit/sec and 12 bit data resolution for each measurement direction (Bx, By and Bz linear field measurement up to +-\/130mT).\hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{Key Features and Benefits}\label{md__r_e_a_d_m_e_autotoc_md4}
+
+\begin{DoxyItemize}
+\item Integrated temperature sensing
+\item Low current consumption of 0.\+007 µA in power down mode and 10 µA in ultra low power mode
+\item 2.\+7 to 3.\+5 V operating supply voltage
+\item Digital output via 2-\/wire standard I2C interface
+\item Bx, By and Bz linear field measurement up to ±130 mT
+\item 12-\/bit data resolution for each measurement direction
+\item Resolution 98 µ\+T/\+LSB
+\item Operating temperature range from -\/40 °C to 125 °C
+\item \href{https://www.infineon.com/dgdl/Infineon-Software-for-3D-Magnetic-Sensor-2Go\%20incl.\%20out-of-shaft_05_06-SW-v05_06-EN.zip?fileId=5546d4626102d35a01614626f9644e4e}{\texttt{ GUI}} for free download as well as integration in Arduino IDE with this repository
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{Installation}\label{md__r_e_a_d_m_e_autotoc_md5}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysubsection{Integration of Library}\label{md__r_e_a_d_m_e_autotoc_md6}
+Please download this repository from Git\+Hub by clicking on the following field in the \href{https://github.com/Infineon/TLV493D-A1B6-3DMagnetic-Sensor/releases}{\texttt{ releases}} of this repository.
+
+
+
+To install the 3D magnetic sensor 2GO library in the Arduino IDE, please go now to {\bfseries{Sketch}} \texorpdfstring{$>$}{>} {\bfseries{Include Library}} \texorpdfstring{$>$}{>} {\bfseries{Add .ZIP Library...}} in the Arduino IDE and navigate to the downloaded .ZIP file of this repository. The library will be installed in your Arduino sketch folder in libraries and you can select as well as include this one to your project under {\bfseries{Sketch}} \texorpdfstring{$>$}{>} {\bfseries{Include Library}} \texorpdfstring{$>$}{>} {\bfseries{TLV493\+D-\/\+A1\+B6}}.
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysection{Usage}\label{md__r_e_a_d_m_e_autotoc_md7}
+Please see the example sketches in the {\ttfamily /examples} directory in this library to learn more about the usage of the library.
+
+Currently, there exist two separate evaluation boards\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://www.infineon.com/cms/de/product/evaluation-boards/tlv493d-a1b6-ms2go/}{\texttt{ TLV493\+D-\/\+A1\+B6 MS2\+GO}}
+\item \href{https://www.infineon.com/cms/en/product/evaluation-boards/s2go_3d-sense_tlv493d/}{\texttt{ TLV493\+D-\/\+A1\+B6 3DMagnetic Shield2\+Go}}
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysubsection{Usage with TLV493\+D-\/\+A1\+B6 MS2\+GO}\label{md__r_e_a_d_m_e_autotoc_md8}
+The 3D Magnetic Sensor 2GO is an evaluation board equipped with the magnetic sensor \href{https://www.infineon.com/cms/en/product/evaluation-boards/tlv493d-a1b6-ms2go/}{\texttt{ TLV493\+D-\/\+A1\+B6}} for three dimensional measurement combined with an ARM® Cortex™-\/\+M0 CPU. The 3D Magnetic Sensor 2GO has a complete set of on-\/board devices, including an on-\/board debugger. A PDF summarizing the features and layout of the 3D magnetic sensor 2GO board is stored on the Infineon homepage \href{https://www.infineon.com/dgdl/Infineon-3D-Magnetic-Sensor_EvalKit_UM-UM-v01_01-EN.pdf?fileId=5546d462525dbac40152ac4ca1d318c2}{\texttt{ here}}.
+
+Please note that base of the Sensors 2GO is the XMC 2Go from Infineon. Therefore, please install (if not already done) also the \href{https://github.com/Infineon/XMC-for-Arduino}{\texttt{ XMC-\/for-\/\+Arduino}} implementation and choose afterwards {\bfseries{XMC1100 XMC2\+Go}} from the {\bfseries{Tools}}\texorpdfstring{$>$}{>}{\bfseries{Board}} menu in the Arduino IDE if working with this evaluation board.\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysubsection{TLV493\+D-\/\+A1\+B6 3\+DSense Shield2\+Go}\label{md__r_e_a_d_m_e_autotoc_md9}
+The TLV493\+D-\/\+A1\+B6 3DMagnetic Shield2\+Go is a standalone break out board with Infineon\textquotesingle{}s Shield2\+Go formfactor and pin out. You can connect it easily to any microcontroller of your choice which is Arduino compatible and has 3.\+3V logic level (please note that the Arduino UNO has 5V logic level and cannot be used without level shifting).
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/Infineon/TLV493D-A1B6-3DMagnetic-Sensor/wiki}{\texttt{ Link}} to the wiki with more information
+\end{DoxyItemize}
+
+However, every Shield2\+Go is directly compatible with Infineon\textquotesingle{}s XMC2\+Go and the recommended quick start is to use an XMC2\+Go for evaluation. Therefore, please install (if not already done) also the \href{https://github.com/Infineon/XMC-for-Arduino}{\texttt{ XMC-\/for-\/\+Arduino}} implementation and choose afterwards {\bfseries{XMC1100 XMC2\+Go}} from the {\bfseries{Tools}}\texorpdfstring{$>$}{>}{\bfseries{Board}} menu in the Arduino IDE if working with this evaluation board. To use it, please plug the TLV493\+D-\/\+A1\+B6 3DMagnetic Shield2\+Go onto the XMC2\+Go as shown below.
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md10}{}\doxysection{Processing}\label{md__r_e_a_d_m_e_autotoc_md10}
+This library supports the open-\/source software \href{https://processing.org/}{\texttt{ Processing}} for creating GUIs. It allows you to connect your evaluation board to a PC over serial communication and visualisation of the embedded system. Find out more on the Arduino homepage \href{http://playground.arduino.cc/Interfacing/Processing}{\texttt{ here}}. The respective files are stored in the /processing folder of this repository.\hypertarget{md__r_e_a_d_m_e_autotoc_md11}{}\doxysection{Printables}\label{md__r_e_a_d_m_e_autotoc_md11}
+The TLx493D 3D magnetic sensor family has additional tools which can be directly mounted on top of the evaluation boards. The 3D print data of the \href{https://www.infineon.com/cms/en/product/promopages/sensors-2go/\#Add-ons-3D-Magnetic-2GO}{\texttt{ joystick}}, the \href{https://www.infineon.com/cms/en/product/promopages/sensors-2go/\#Add-ons-3D-Magnetic-2GO}{\texttt{ rotate knob}} and the \href{https://www.infineon.com/cms/en/product/promopages/sensors-2go/\#Add-ons-3D-Magnetic-2GO}{\texttt{ linear slider}} can be found in the folder {\ttfamily printables}.
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md12}{}\doxysection{Board Information, Datasheet and Additional Information}\label{md__r_e_a_d_m_e_autotoc_md12}
+The datasheet for the TLV493\+D-\/\+A1\+B6 can be found here \href{https://www.infineon.com/dgdl/Infineon-TLV493D-A1B6-DS-v01_00-EN.pdf?fileId=5546d462525dbac40152a6b85c760e80}{\texttt{ TLV493\+D-\/\+A1\+B6 Datasheet}} while respective application notes are located here \href{https://www.infineon.com/dgdl/Infineon-TLV493D-A1B6_3DMagnetic-UM-v01_03-EN.pdf?fileId=5546d46261d5e6820161e75721903ddd}{\texttt{ Application Notes}}.
+
+Please check the \href{https://github.com/Infineon/TLV493D-A1B6-3DMagnetic-Sensor/wiki}{\texttt{ wiki}} with more information for the TLV493\+D-\/\+A1\+B6 3DSense Shield2\+Go as well. 

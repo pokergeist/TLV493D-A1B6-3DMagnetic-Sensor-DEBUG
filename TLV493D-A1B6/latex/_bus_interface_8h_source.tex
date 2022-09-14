@@ -1,0 +1,30 @@
+\hypertarget{_bus_interface_8h_source}{}\doxysection{Bus\+Interface.\+h}
+\label{_bus_interface_8h_source}\index{src/util/BusInterface.h@{src/util/BusInterface.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#ifndef TLV493D\_BUSIF\_H\_INCLUDED}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#define TLV493D\_BUSIF\_H\_INCLUDED}}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include <Arduino.h>}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include <Wire.h>}}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#define TLV493D\_BUSIF\_READSIZE      10}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#define TLV493D\_BUSIF\_WRITESIZE     4}}
+\DoxyCodeLine{41 }
+\DoxyCodeLine{42 \textcolor{keyword}{namespace }tlv493d}
+\DoxyCodeLine{43 \{}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }}
+\DoxyCodeLine{46 \{}
+\DoxyCodeLine{47     TwoWire *bus;}
+\DoxyCodeLine{48     uint8\_t adress;}
+\DoxyCodeLine{49     uint8\_t regReadData[TLV493D\_BUSIF\_READSIZE];}
+\DoxyCodeLine{50     uint8\_t regWriteData[TLV493D\_BUSIF\_WRITESIZE];}
+\DoxyCodeLine{51 \} \mbox{\hyperlink{structtlv493d_1_1_bus_interface__t}{BusInterface\_t}};}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}
