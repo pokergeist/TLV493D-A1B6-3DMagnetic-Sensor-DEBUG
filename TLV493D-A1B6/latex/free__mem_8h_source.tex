@@ -1,0 +1,28 @@
+\hypertarget{free__mem_8h_source}{}\doxysection{free\+\_\+mem.\+h}
+\label{free__mem_8h_source}\index{src/util/free\_mem.h@{src/util/free\_mem.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#ifndef FREE\_MEM\_H}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#define FREE\_MEM\_H}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#ifdef \_\_arm\_\_}}
+\DoxyCodeLine{5 \textcolor{comment}{// should use uinstd.h to define sbrk but Due causes a conflict}}
+\DoxyCodeLine{6 \textcolor{keyword}{extern} \textcolor{stringliteral}{"{}C"{}} \textcolor{keywordtype}{char}* sbrk(\textcolor{keywordtype}{int} incr);}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#else  }\textcolor{comment}{// \_\_ARM\_\_}}
+\DoxyCodeLine{8 \textcolor{keyword}{extern} \textcolor{keywordtype}{char} *\_\_brkval;}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{// \_\_arm\_\_}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keywordtype}{int} freeMemory() \{}
+\DoxyCodeLine{12   \textcolor{keywordtype}{char} top;}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#ifdef \_\_arm\_\_}}
+\DoxyCodeLine{14   \textcolor{keywordflow}{return} \&top -\/ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}*\textcolor{keyword}{>}(sbrk(0));}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#elif defined(CORE\_TEENSY) || (ARDUINO > 103 \&\& ARDUINO != 151)}}
+\DoxyCodeLine{16   \textcolor{keywordflow}{return} \&top -\/ \_\_brkval;}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#else  }\textcolor{comment}{// \_\_arm\_\_}}
+\DoxyCodeLine{18   \textcolor{keywordflow}{return} \_\_brkval ? \&top -\/ \_\_brkval : \&top -\/ \_\_malloc\_heap\_start;}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#endif  }\textcolor{comment}{// \_\_arm\_\_}}
+\DoxyCodeLine{20 \}}
+\DoxyCodeLine{21 }
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

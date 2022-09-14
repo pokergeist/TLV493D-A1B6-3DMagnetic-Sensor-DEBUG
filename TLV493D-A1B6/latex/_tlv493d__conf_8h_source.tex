@@ -15,104 +15,114 @@
 \DoxyCodeLine{42 \textcolor{preprocessor}{\#define TLV493D\_STARTUPDELAY        40}}
 \DoxyCodeLine{43 \textcolor{preprocessor}{\#define TLV493D\_RESETDELAY          60}}
 \DoxyCodeLine{44 }
-\DoxyCodeLine{45 \textcolor{preprocessor}{\#define TLV493D\_NUM\_OF\_REGMASKS     25}}
-\DoxyCodeLine{46 \textcolor{preprocessor}{\#define TLV493D\_NUM\_OF\_ACCMODES     5}}
-\DoxyCodeLine{47 }
-\DoxyCodeLine{48 \textcolor{preprocessor}{\#define TLV493D\_MEASUREMENT\_READOUT 7}}
-\DoxyCodeLine{49 \textcolor{preprocessor}{\#define TLV493D\_FAST\_READOUT        3}}
-\DoxyCodeLine{50 }
-\DoxyCodeLine{51 \textcolor{preprocessor}{\#define TLV493D\_B\_MULT              0.098}}
-\DoxyCodeLine{52 \textcolor{preprocessor}{\#define TLV493D\_TEMP\_MULT           1.1}}
-\DoxyCodeLine{53 \textcolor{preprocessor}{\#define TLV493D\_TEMP\_OFFSET         315}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#define TLV493D\_NUM\_OF\_ACCMODES     5}}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#define TLV493D\_MEASUREMENT\_READOUT 7}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#define TLV493D\_FAST\_READOUT        3}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#define TLV493D\_B\_MULT              0.098}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#define TLV493D\_TEMP\_MULT           1.1}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#define TLV493D\_TEMP\_OFFSET         315}}
+\DoxyCodeLine{53 }
 \DoxyCodeLine{54 }
-\DoxyCodeLine{55 }
-\DoxyCodeLine{56 \textcolor{keyword}{namespace }tlv493d}
-\DoxyCodeLine{57 \{}
-\DoxyCodeLine{58 }
-\DoxyCodeLine{59 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
-\DoxyCodeLine{60 \{}
-\DoxyCodeLine{61     uint8\_t fast;}
-\DoxyCodeLine{62     uint8\_t lp;}
-\DoxyCodeLine{63     uint8\_t lpPeriod;}
-\DoxyCodeLine{64     uint16\_t measurementTime;}
-\DoxyCodeLine{65 \} \mbox{\hyperlink{structtlv493d_1_1_access_mode__t}{AccessMode\_t}};}
-\DoxyCodeLine{66 }
-\DoxyCodeLine{67 \textcolor{keyword}{enum} Registers\_e}
-\DoxyCodeLine{68 \{}
-\DoxyCodeLine{69     R\_BX1 = 0,}
-\DoxyCodeLine{70     R\_BX2, }
-\DoxyCodeLine{71     R\_BY1, }
-\DoxyCodeLine{72     R\_BY2, }
-\DoxyCodeLine{73     R\_BZ1, }
-\DoxyCodeLine{74     R\_BZ2, }
-\DoxyCodeLine{75     R\_TEMP1, }
-\DoxyCodeLine{76     R\_TEMP2, }
-\DoxyCodeLine{77     R\_FRAMECOUNTER, }
-\DoxyCodeLine{78     R\_CHANNEL,}
-\DoxyCodeLine{79     R\_POWERDOWNFLAG, }
-\DoxyCodeLine{80     R\_RES1,}
-\DoxyCodeLine{81     R\_RES2,}
-\DoxyCodeLine{82     R\_RES3,}
-\DoxyCodeLine{83     W\_PARITY,}
-\DoxyCodeLine{84     W\_ADDR,}
-\DoxyCodeLine{85     W\_INT,}
-\DoxyCodeLine{86     W\_FAST,}
-\DoxyCodeLine{87     W\_LOWPOWER,}
-\DoxyCodeLine{88     W\_TEMP\_NEN,}
-\DoxyCodeLine{89     W\_LP\_PERIOD,}
-\DoxyCodeLine{90     W\_PARITY\_EN,}
-\DoxyCodeLine{91     W\_RES1,}
-\DoxyCodeLine{92     W\_RES2,}
-\DoxyCodeLine{93     W\_RES3}
-\DoxyCodeLine{94 \};}
-\DoxyCodeLine{95 }
-\DoxyCodeLine{96 \textcolor{keyword}{const} RegMask\_t regMasks[] = \{}
-\DoxyCodeLine{97     \{ REGMASK\_READ, 0, 0xFF, 0 \},       \textcolor{comment}{// R\_BX1}}
-\DoxyCodeLine{98     \{ REGMASK\_READ, 1, 0xFF, 0 \},       \textcolor{comment}{// R\_BY1}}
-\DoxyCodeLine{99     \{ REGMASK\_READ, 2, 0xFF, 0 \},       \textcolor{comment}{// R\_BZ1}}
-\DoxyCodeLine{100 }
-\DoxyCodeLine{101     \{ REGMASK\_READ, 3, 0xF0, 4 \},       \textcolor{comment}{// R\_TEMP1}}
-\DoxyCodeLine{102     \{ REGMASK\_READ, 3, 0x0C, 2 \},       \textcolor{comment}{// R\_FRAMECOUNTER}}
-\DoxyCodeLine{103     \{ REGMASK\_READ, 3, 0x03, 0 \},       \textcolor{comment}{// R\_CHANNEL}}
-\DoxyCodeLine{104 }
-\DoxyCodeLine{105     \{ REGMASK\_READ, 4, 0xF0, 4 \},       \textcolor{comment}{// R\_BX2}}
-\DoxyCodeLine{106     \{ REGMASK\_READ, 4, 0x0F, 0 \},       \textcolor{comment}{// R\_BY2}}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{108     \{ REGMASK\_READ, 5, 0x80, 7 \},       \textcolor{comment}{// R\_RESERVED         (added)}}
-\DoxyCodeLine{109     \{ REGMASK\_READ, 5, 0x40, 6 \},       \textcolor{comment}{// R\_DIAG\_TEST\_MODE   (added)}}
-\DoxyCodeLine{110     \{ REGMASK\_READ, 5, 0x20, 5 \},       \textcolor{comment}{// R\_DIAG\_PARITY\_FUSE (added)}}
-\DoxyCodeLine{111     \{ REGMASK\_READ, 5, 0x10, 4 \},       \textcolor{comment}{// R\_POWERDOWNFLAG}}
-\DoxyCodeLine{112     \{ REGMASK\_READ, 5, 0x0F, 0 \},       \textcolor{comment}{// R\_BZ2}}
-\DoxyCodeLine{113 }
-\DoxyCodeLine{114     \{ REGMASK\_READ, 6, 0xFF, 0 \},       \textcolor{comment}{// R\_TEMP2}}
-\DoxyCodeLine{115 }
-\DoxyCodeLine{116     \{ REGMASK\_READ, 7, 0x18, 3 \},       \textcolor{comment}{// R\_RES1}}
-\DoxyCodeLine{117     \{ REGMASK\_READ, 8, 0xFF, 0 \},       \textcolor{comment}{// R\_RES2}}
-\DoxyCodeLine{118     \{ REGMASK\_READ, 9, 0x1F, 0 \},       \textcolor{comment}{// R\_RES3}}
-\DoxyCodeLine{119 }
-\DoxyCodeLine{120     \{ REGMASK\_WRITE, 1, 0x80, 7 \},      \textcolor{comment}{// W\_PARITY}}
-\DoxyCodeLine{121     \{ REGMASK\_WRITE, 1, 0x60, 5 \},      \textcolor{comment}{// W\_ADDR}}
-\DoxyCodeLine{122     \{ REGMASK\_WRITE, 1, 0x04, 2 \},      \textcolor{comment}{// W\_INT}}
-\DoxyCodeLine{123     \{ REGMASK\_WRITE, 1, 0x02, 1 \},      \textcolor{comment}{// W\_FAST}}
-\DoxyCodeLine{124     \{ REGMASK\_WRITE, 1, 0x01, 0 \},      \textcolor{comment}{// W\_LOWPOWER}}
-\DoxyCodeLine{125     \{ REGMASK\_WRITE, 3, 0x80, 7 \},      \textcolor{comment}{// W\_TEMP\_EN}}
-\DoxyCodeLine{126     \{ REGMASK\_WRITE, 3, 0x40, 6 \},      \textcolor{comment}{// W\_LOWPOWER}}
-\DoxyCodeLine{127     \{ REGMASK\_WRITE, 3, 0x20, 5 \},      \textcolor{comment}{// W\_POWERDOWN}}
-\DoxyCodeLine{128     \{ REGMASK\_WRITE, 1, 0x18, 3 \},      \textcolor{comment}{// W\_RES1}}
-\DoxyCodeLine{129     \{ REGMASK\_WRITE, 2, 0xFF, 0 \},      \textcolor{comment}{// W\_RES2}}
-\DoxyCodeLine{130     \{ REGMASK\_WRITE, 3, 0x1F, 0 \}       \textcolor{comment}{// W\_RES3}}
-\DoxyCodeLine{131 \};}
-\DoxyCodeLine{132 }
-\DoxyCodeLine{133 \textcolor{keyword}{const} AccessMode\_t accModes[] = \{}
-\DoxyCodeLine{134     \{ 0, 0, 0, 1000 \},      \textcolor{comment}{// POWERDOWNMODE}}
-\DoxyCodeLine{135     \{ 1, 0, 0, 0 \},         \textcolor{comment}{// FASTMODE}}
-\DoxyCodeLine{136     \{ 0, 1, 1, 10 \},        \textcolor{comment}{// LOWPOWERMODE}}
-\DoxyCodeLine{137     \{ 0, 1, 0, 100 \},       \textcolor{comment}{// ULTRALOWPOWERMODE}}
-\DoxyCodeLine{138     \{ 1, 1, 1, 10 \}         \textcolor{comment}{// MASTERCONTROLLEDMODE}}
-\DoxyCodeLine{139 \};}
-\DoxyCodeLine{140 }
-\DoxyCodeLine{141 \}}
-\DoxyCodeLine{142 }
-\DoxyCodeLine{143 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{55 \textcolor{keyword}{namespace }tlv493d}
+\DoxyCodeLine{56 \{}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{58 \textcolor{keyword}{typedef} \textcolor{keyword}{struct}}
+\DoxyCodeLine{59 \{}
+\DoxyCodeLine{60     uint8\_t fast;}
+\DoxyCodeLine{61     uint8\_t lp;}
+\DoxyCodeLine{62     uint8\_t lpPeriod;}
+\DoxyCodeLine{63     uint16\_t measurementTime;}
+\DoxyCodeLine{64 \} \mbox{\hyperlink{structtlv493d_1_1_access_mode__t}{AccessMode\_t}};}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66 \textcolor{keyword}{enum} Registers\_e}
+\DoxyCodeLine{67 \{}
+\DoxyCodeLine{68     R\_BX1 = 0,}
+\DoxyCodeLine{69     R\_BX2, }
+\DoxyCodeLine{70     R\_BY1, }
+\DoxyCodeLine{71     R\_BY2, }
+\DoxyCodeLine{72     R\_BZ1, }
+\DoxyCodeLine{73     R\_BZ2, }
+\DoxyCodeLine{74     R\_TEMP1, }
+\DoxyCodeLine{75     R\_TEMP2, }
+\DoxyCodeLine{76     R\_FRAMECOUNTER, }
+\DoxyCodeLine{77     R\_CHANNEL,}
+\DoxyCodeLine{78     R\_RESERVED\_BIT,}
+\DoxyCodeLine{79     R\_DIAG\_TEST\_MODE,}
+\DoxyCodeLine{80     R\_DIAG\_PARITY\_FUSE,}
+\DoxyCodeLine{81     R\_POWERDOWNFLAG, }
+\DoxyCodeLine{82     R\_RES1,}
+\DoxyCodeLine{83     R\_RES2,}
+\DoxyCodeLine{84     R\_RES3,}
+\DoxyCodeLine{85     W\_PARITY,}
+\DoxyCodeLine{86     W\_ADDR,}
+\DoxyCodeLine{87     W\_INT,}
+\DoxyCodeLine{88     W\_FAST,}
+\DoxyCodeLine{89     W\_LOWPOWER,}
+\DoxyCodeLine{90     W\_TEMP\_NEN,}
+\DoxyCodeLine{91     W\_LP\_PERIOD,}
+\DoxyCodeLine{92     W\_PARITY\_EN,}
+\DoxyCodeLine{93     W\_RES1,}
+\DoxyCodeLine{94     W\_RES2,}
+\DoxyCodeLine{95     W\_RES3,}
+\DoxyCodeLine{96     LAST\_REG\_REF}
+\DoxyCodeLine{97 \};}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99 \textcolor{keyword}{const} RegMask\_t regMasks[] = \{}
+\DoxyCodeLine{100     \{ REGMASK\_READ, 0, 0xFF, 0 \},       \textcolor{comment}{// R\_BX1}}
+\DoxyCodeLine{101     \{ REGMASK\_READ, 4, 0xF0, 4 \},       \textcolor{comment}{// R\_BX2}}
+\DoxyCodeLine{102     \{ REGMASK\_READ, 1, 0xFF, 0 \},       \textcolor{comment}{// R\_BY1}}
+\DoxyCodeLine{103     \{ REGMASK\_READ, 4, 0x0F, 0 \},       \textcolor{comment}{// R\_BY2}}
+\DoxyCodeLine{104     \{ REGMASK\_READ, 2, 0xFF, 0 \},       \textcolor{comment}{// R\_BZ1}}
+\DoxyCodeLine{105     \{ REGMASK\_READ, 5, 0x0F, 0 \},       \textcolor{comment}{// R\_BZ2}}
+\DoxyCodeLine{106     \{ REGMASK\_READ, 3, 0xF0, 4 \},       \textcolor{comment}{// R\_TEMP1}}
+\DoxyCodeLine{107     \{ REGMASK\_READ, 6, 0xFF, 0 \},       \textcolor{comment}{// R\_TEMP2}}
+\DoxyCodeLine{108     \{ REGMASK\_READ, 3, 0x0C, 2 \},       \textcolor{comment}{// R\_FRAMECOUNTER}}
+\DoxyCodeLine{109     \{ REGMASK\_READ, 3, 0x03, 0 \},       \textcolor{comment}{// R\_CHANNEL}}
+\DoxyCodeLine{110     \{ REGMASK\_READ, 5, 0x80, 7 \},       \textcolor{comment}{// R\_RESERVED\_BIT}}
+\DoxyCodeLine{111     \{ REGMASK\_READ, 5, 0x40, 6 \},       \textcolor{comment}{// R\_DIAG\_TEST\_MODE}}
+\DoxyCodeLine{112     \{ REGMASK\_READ, 5, 0x20, 5 \},       \textcolor{comment}{// R\_DIAG\_PARITY\_FUSE}}
+\DoxyCodeLine{113     \{ REGMASK\_READ, 5, 0x10, 4 \},       \textcolor{comment}{// R\_POWERDOWNFLAG}}
+\DoxyCodeLine{114     \{ REGMASK\_READ, 7, 0x18, 3 \},       \textcolor{comment}{// R\_RES1}}
+\DoxyCodeLine{115     \{ REGMASK\_READ, 8, 0xFF, 0 \},       \textcolor{comment}{// R\_RES2}}
+\DoxyCodeLine{116     \{ REGMASK\_READ, 9, 0x1F, 0 \},       \textcolor{comment}{// R\_RES3}}
+\DoxyCodeLine{117     \{ REGMASK\_WRITE, 1, 0x80, 7 \},      \textcolor{comment}{// W\_PARITY}}
+\DoxyCodeLine{118     \{ REGMASK\_WRITE, 1, 0x60, 5 \},      \textcolor{comment}{// W\_ADDR}}
+\DoxyCodeLine{119     \{ REGMASK\_WRITE, 1, 0x04, 2 \},      \textcolor{comment}{// W\_INT}}
+\DoxyCodeLine{120     \{ REGMASK\_WRITE, 1, 0x02, 1 \},      \textcolor{comment}{// W\_FAST}}
+\DoxyCodeLine{121     \{ REGMASK\_WRITE, 1, 0x01, 0 \},      \textcolor{comment}{// W\_LOWPOWER}}
+\DoxyCodeLine{122     \{ REGMASK\_WRITE, 3, 0x80, 7 \},      \textcolor{comment}{// W\_TEMP\_DISABLE}}
+\DoxyCodeLine{123     \{ REGMASK\_WRITE, 3, 0x40, 6 \},      \textcolor{comment}{// W\_LOWPOWER\_PERIOD}}
+\DoxyCodeLine{124     \{ REGMASK\_WRITE, 3, 0x20, 5 \},      \textcolor{comment}{// W\_PARITY\_TEST}}
+\DoxyCodeLine{125     \{ REGMASK\_WRITE, 1, 0x18, 3 \},      \textcolor{comment}{// W\_RES1}}
+\DoxyCodeLine{126     \{ REGMASK\_WRITE, 2, 0xFF, 0 \},      \textcolor{comment}{// W\_RES2}}
+\DoxyCodeLine{127     \{ REGMASK\_WRITE, 3, 0x1F, 0 \}       \textcolor{comment}{// W\_RES3}}
+\DoxyCodeLine{128 \};}
+\DoxyCodeLine{129 }
+\DoxyCodeLine{130 \textcolor{keyword}{const} AccessMode\_t accModes[] = \{}
+\DoxyCodeLine{131     \{ 0, 0, 0, 1000 \},  \textcolor{comment}{// POWERDOWNMODE (TLV493D\_DEFAULTMODE) [set FAST=0, LP=0]}}
+\DoxyCodeLine{132                       \textcolor{comment}{//                        /F /LP /LPP 1000   no sampling/acquisition}}
+\DoxyCodeLine{133     \{ 1, 0, 0, 0 \},         \textcolor{comment}{// FASTMODE                F /LP /LPP    0   INT 3.3kHz (period=303us)  OSC driven}}
+\DoxyCodeLine{134     \{ 0, 1, 1, 10 \},        \textcolor{comment}{// LOWPOWERMODE           /F  LP  LPP   10   INT  100Hz ( 10ms)         OSC driven}}
+\DoxyCodeLine{135     \{ 0, 1, 0, 100 \},       \textcolor{comment}{// ULTRALOWPOWERMODE      /F  LP /LPP  100   INT   10Hz (100ms)         OSC driven}}
+\DoxyCodeLine{136     \{ 1, 1, 1, 10 \}         \textcolor{comment}{// MASTERCONTROLLEDMODE    F  LP  LPP   10   opt  variable to 3.3KHz   Read driven}}
+\DoxyCodeLine{137 \};\textcolor{comment}{/*|  |  |  |}}
+\DoxyCodeLine{138 \textcolor{comment}{    |  |  |  +-\/ Measurement Delay (wait to read after changing to MASTERCONTROLLEDMODE, 10ms/100Hz)}}
+\DoxyCodeLine{139 \textcolor{comment}{    |  |  +-\/ Low Power Period 0=100ms, 1=12ms}}
+\DoxyCodeLine{140 \textcolor{comment}{    |  +-\/ Low Power, 0 to disable}}
+\DoxyCodeLine{141 \textcolor{comment}{    +-\/ Fast Mode, 0 to disable}}
+\DoxyCodeLine{142 \textcolor{comment}{*/}}
+\DoxyCodeLine{143 \}}
+\DoxyCodeLine{144 }
+\DoxyCodeLine{145 \textcolor{comment}{// was \#define TLV493D\_NUM\_OF\_REGMASKS      25}}
+\DoxyCodeLine{146 \textcolor{comment}{// automate}}
+\DoxyCodeLine{147 \textcolor{preprocessor}{\#define TLV493D\_NUM\_OF\_REGMASKS sizeof(tlv493d::regMasks)/sizeof(tlv493d::RegMask\_t)}}
+\DoxyCodeLine{148 }
+\DoxyCodeLine{149 \textcolor{comment}{// verify at compile time that the number of masks match number of references}}
+\DoxyCodeLine{150 \textcolor{keyword}{static\_assert}(TLV493D\_NUM\_OF\_REGMASKS == tlv493d::LAST\_REG\_REF,}
+\DoxyCodeLine{151               \textcolor{stringliteral}{"{}Mismatch of register masks and references."{}});}
+\DoxyCodeLine{152 }
+\DoxyCodeLine{153 \textcolor{preprocessor}{\#endif}}
 
 \end{DoxyCode}

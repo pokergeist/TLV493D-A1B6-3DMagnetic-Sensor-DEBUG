@@ -24,7 +24,8 @@ void {\bfseries begin} (void)
 \mbox{\Hypertarget{class_tlv493d_abe2d30ddda56638bb4da7ecc92329f88}\label{class_tlv493d_abe2d30ddda56638bb4da7ecc92329f88}} 
 void {\bfseries begin} (Two\+Wire \&bus)
 \item 
-void \mbox{\hyperlink{class_tlv493d_a0b9d615fe9774f97f5b573795f3536eb}{begin}} (Two\+Wire \&bus, Tlv493d\+\_\+\+Address\+\_\+t slave\+Address, bool reset)
+\mbox{\Hypertarget{class_tlv493d_a0b9d615fe9774f97f5b573795f3536eb}\label{class_tlv493d_a0b9d615fe9774f97f5b573795f3536eb}} 
+void {\bfseries begin} (Two\+Wire \&bus, Tlv493d\+\_\+\+Address\+\_\+t slave\+Address, bool reset)
 \item 
 \mbox{\Hypertarget{class_tlv493d_aa479cd5502d9c52842927be0d2c66fa1}\label{class_tlv493d_aa479cd5502d9c52842927be0d2c66fa1}} 
 void {\bfseries end} (void)
@@ -37,6 +38,9 @@ void {\bfseries enable\+Interrupt} (void)
 \item 
 \mbox{\Hypertarget{class_tlv493d_abaea0cddf2ddb7677a6c73328e98de27}\label{class_tlv493d_abaea0cddf2ddb7677a6c73328e98de27}} 
 void {\bfseries disable\+Interrupt} (void)
+\item 
+\mbox{\Hypertarget{class_tlv493d_aedf1208f8eb1520f60fc649a96b64635}\label{class_tlv493d_aedf1208f8eb1520f60fc649a96b64635}} 
+bool {\bfseries interrupt\+Enabled} (void)
 \item 
 \mbox{\Hypertarget{class_tlv493d_acc397e1f626dccb8b431cab93c3c33bf}\label{class_tlv493d_acc397e1f626dccb8b431cab93c3c33bf}} 
 void {\bfseries enable\+Temp} (void)
@@ -59,6 +63,9 @@ float {\bfseries getY} (void)
 \mbox{\Hypertarget{class_tlv493d_ac9ed109dae4ed25b18182ab66d8447cd}\label{class_tlv493d_ac9ed109dae4ed25b18182ab66d8447cd}} 
 float {\bfseries getZ} (void)
 \item 
+\mbox{\Hypertarget{class_tlv493d_a0dd9a87263aab46f5d3ec3e18fc67250}\label{class_tlv493d_a0dd9a87263aab46f5d3ec3e18fc67250}} 
+int8\+\_\+t {\bfseries data\+Valid} (void)
+\item 
 \mbox{\Hypertarget{class_tlv493d_af75b5fea949a0f98420092fb52196716}\label{class_tlv493d_af75b5fea949a0f98420092fb52196716}} 
 float {\bfseries get\+Amount} (void)
 \item 
@@ -70,6 +77,24 @@ float {\bfseries get\+Polar} (void)
 \item 
 \mbox{\Hypertarget{class_tlv493d_a56d3df72b010da80fa58bb7aa202a1c7}\label{class_tlv493d_a56d3df72b010da80fa58bb7aa202a1c7}} 
 float {\bfseries get\+Temp} (void)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_tlv493d_a0dafde2c9977ace73f116fc99ffe19ed}\label{class_tlv493d_a0dafde2c9977ace73f116fc99ffe19ed}} 
+uint32\+\_\+t {\bfseries frame\+\_\+count\+\_\+errors}
+\item 
+\mbox{\Hypertarget{class_tlv493d_aaa17a35101783f11a379722de7f767d6}\label{class_tlv493d_aaa17a35101783f11a379722de7f767d6}} 
+uint32\+\_\+t {\bfseries acquisition\+\_\+errors}
+\item 
+\mbox{\Hypertarget{class_tlv493d_a71548a6a8016b397c88d2bbe14bd7fba}\label{class_tlv493d_a71548a6a8016b397c88d2bbe14bd7fba}} 
+uint8\+\_\+t {\bfseries last\+\_\+channel}
+\item 
+\mbox{\Hypertarget{class_tlv493d_a760ef576263b279412e4af1827cdda13}\label{class_tlv493d_a760ef576263b279412e4af1827cdda13}} 
+uint8\+\_\+t {\bfseries last\+\_\+frame\+\_\+number}
+\item 
+\mbox{\Hypertarget{class_tlv493d_a94257bfa25a45857769a9ddfe67acd9e}\label{class_tlv493d_a94257bfa25a45857769a9ddfe67acd9e}} 
+uint8\+\_\+t {\bfseries m\+Expected\+Frame\+Count\+Was}
 \end{DoxyCompactItemize}
 
 
@@ -104,15 +129,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \char`\"{}\+
  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR ~\newline
  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. ~\newline
  
-
-\doxysubsection{Member Function Documentation}
-\mbox{\Hypertarget{class_tlv493d_a0b9d615fe9774f97f5b573795f3536eb}\label{class_tlv493d_a0b9d615fe9774f97f5b573795f3536eb}} 
-\index{Tlv493d@{Tlv493d}!begin@{begin}}
-\index{begin@{begin}!Tlv493d@{Tlv493d}}
-\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
-{\footnotesize\ttfamily void Tlv493d\+::begin (\begin{DoxyParamCaption}\item[{Two\+Wire \&}]{bus,  }\item[{Tlv493d\+\_\+\+Address\+\_\+t}]{slave\+Address,  }\item[{bool}]{reset }\end{DoxyParamCaption})}
-
-Workaround for kit2go vdd enable
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
