@@ -92,6 +92,7 @@ $(document).ready(function(){initNavTree('class_tlv493d.html',''); initResizable
   <div class="summary">
 <a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="class_tlv493d-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">Tlv493d Class Reference</div></div>
 </div><!--header-->
@@ -120,7 +121,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> (void)</td>
 <tr class="memitem:abe2d30ddda56638bb4da7ecc92329f88"><td class="memItemLeft" align="right" valign="top"><a id="abe2d30ddda56638bb4da7ecc92329f88" name="abe2d30ddda56638bb4da7ecc92329f88"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> (TwoWire &amp;bus)</td></tr>
 <tr class="separator:abe2d30ddda56638bb4da7ecc92329f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b9d615fe9774f97f5b573795f3536eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tlv493d.html#a0b9d615fe9774f97f5b573795f3536eb">begin</a> (TwoWire &amp;bus, Tlv493d_Address_t slaveAddress, bool reset)</td></tr>
+<tr class="memitem:a0b9d615fe9774f97f5b573795f3536eb"><td class="memItemLeft" align="right" valign="top"><a id="a0b9d615fe9774f97f5b573795f3536eb" name="a0b9d615fe9774f97f5b573795f3536eb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> (TwoWire &amp;bus, Tlv493d_Address_t slaveAddress, bool reset)</td></tr>
 <tr class="separator:a0b9d615fe9774f97f5b573795f3536eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa479cd5502d9c52842927be0d2c66fa1"><td class="memItemLeft" align="right" valign="top"><a id="aa479cd5502d9c52842927be0d2c66fa1" name="aa479cd5502d9c52842927be0d2c66fa1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> (void)</td></tr>
@@ -134,6 +136,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>enableInterrupt</b> (
 <tr class="memitem:abaea0cddf2ddb7677a6c73328e98de27"><td class="memItemLeft" align="right" valign="top"><a id="abaea0cddf2ddb7677a6c73328e98de27" name="abaea0cddf2ddb7677a6c73328e98de27"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>disableInterrupt</b> (void)</td></tr>
 <tr class="separator:abaea0cddf2ddb7677a6c73328e98de27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedf1208f8eb1520f60fc649a96b64635"><td class="memItemLeft" align="right" valign="top"><a id="aedf1208f8eb1520f60fc649a96b64635" name="aedf1208f8eb1520f60fc649a96b64635"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>interruptEnabled</b> (void)</td></tr>
+<tr class="separator:aedf1208f8eb1520f60fc649a96b64635"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc397e1f626dccb8b431cab93c3c33bf"><td class="memItemLeft" align="right" valign="top"><a id="acc397e1f626dccb8b431cab93c3c33bf" name="acc397e1f626dccb8b431cab93c3c33bf"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>enableTemp</b> (void)</td></tr>
 <tr class="separator:acc397e1f626dccb8b431cab93c3c33bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,6 +160,9 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getY</b> (void)</td>
 <tr class="memitem:ac9ed109dae4ed25b18182ab66d8447cd"><td class="memItemLeft" align="right" valign="top"><a id="ac9ed109dae4ed25b18182ab66d8447cd" name="ac9ed109dae4ed25b18182ab66d8447cd"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getZ</b> (void)</td></tr>
 <tr class="separator:ac9ed109dae4ed25b18182ab66d8447cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dd9a87263aab46f5d3ec3e18fc67250"><td class="memItemLeft" align="right" valign="top"><a id="a0dd9a87263aab46f5d3ec3e18fc67250" name="a0dd9a87263aab46f5d3ec3e18fc67250"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><b>dataValid</b> (void)</td></tr>
+<tr class="separator:a0dd9a87263aab46f5d3ec3e18fc67250"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af75b5fea949a0f98420092fb52196716"><td class="memItemLeft" align="right" valign="top"><a id="af75b5fea949a0f98420092fb52196716" name="af75b5fea949a0f98420092fb52196716"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getAmount</b> (void)</td></tr>
 <tr class="separator:af75b5fea949a0f98420092fb52196716"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,6 +175,24 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getPolar</b> (void)<
 <tr class="memitem:a56d3df72b010da80fa58bb7aa202a1c7"><td class="memItemLeft" align="right" valign="top"><a id="a56d3df72b010da80fa58bb7aa202a1c7" name="a56d3df72b010da80fa58bb7aa202a1c7"></a>
 float&#160;</td><td class="memItemRight" valign="bottom"><b>getTemp</b> (void)</td></tr>
 <tr class="separator:a56d3df72b010da80fa58bb7aa202a1c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a0dafde2c9977ace73f116fc99ffe19ed"><td class="memItemLeft" align="right" valign="top"><a id="a0dafde2c9977ace73f116fc99ffe19ed" name="a0dafde2c9977ace73f116fc99ffe19ed"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>frame_count_errors</b></td></tr>
+<tr class="separator:a0dafde2c9977ace73f116fc99ffe19ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa17a35101783f11a379722de7f767d6"><td class="memItemLeft" align="right" valign="top"><a id="aaa17a35101783f11a379722de7f767d6" name="aaa17a35101783f11a379722de7f767d6"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>acquisition_errors</b></td></tr>
+<tr class="separator:aaa17a35101783f11a379722de7f767d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71548a6a8016b397c88d2bbe14bd7fba"><td class="memItemLeft" align="right" valign="top"><a id="a71548a6a8016b397c88d2bbe14bd7fba" name="a71548a6a8016b397c88d2bbe14bd7fba"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>last_channel</b></td></tr>
+<tr class="separator:a71548a6a8016b397c88d2bbe14bd7fba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760ef576263b279412e4af1827cdda13"><td class="memItemLeft" align="right" valign="top"><a id="a760ef576263b279412e4af1827cdda13" name="a760ef576263b279412e4af1827cdda13"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>last_frame_number</b></td></tr>
+<tr class="separator:a760ef576263b279412e4af1827cdda13"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94257bfa25a45857769a9ddfe67acd9e"><td class="memItemLeft" align="right" valign="top"><a id="a94257bfa25a45857769a9ddfe67acd9e" name="a94257bfa25a45857769a9ddfe67acd9e"></a>
+uint8_t&#160;</td><td class="memItemRight" valign="bottom"><b>mExpectedFrameCountWas</b></td></tr>
+<tr class="separator:a94257bfa25a45857769a9ddfe67acd9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a68713d34efe705f318c653b19324e901" name="a68713d34efe705f318c653b19324e901"></a>
@@ -200,42 +226,6 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>getTemp</b> (void)</
  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR <br  />
  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. <br  />
  </p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a0b9d615fe9774f97f5b573795f3536eb" name="a0b9d615fe9774f97f5b573795f3536eb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0b9d615fe9774f97f5b573795f3536eb">&#9670;&#160;</a></span>begin()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Tlv493d::begin </td>
-          <td>(</td>
-          <td class="paramtype">TwoWire &amp;&#160;</td>
-          <td class="paramname"><em>bus</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Tlv493d_Address_t&#160;</td>
-          <td class="paramname"><em>slaveAddress</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>reset</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >Workaround for kit2go vdd enable</p>
 
 </div>
 </div>
