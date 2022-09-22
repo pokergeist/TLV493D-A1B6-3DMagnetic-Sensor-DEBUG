@@ -12,9 +12,25 @@ The apparent solution is to reinitialize the IC after a frame count error is rec
 
 ## Conclusion
 
-I only encountered one instance of a lockup after running CartesianFast.ino about for about 5 hours. I didn't notice if I2C messages were still flying about and just the console output halted, or if the MCU was totally locked up. I didn't have the frame counter fully instrumented so I don't know if the frame counter might have been reset. Unfortunately I never got another error so there were no additional clues from the debug info or gdb inspection in the next 4-1/2 days. I can only add that there were no memory leaks.
+I only encountered one instance of a lockup after running CartesianFast.ino for about about 5 hours. I didn't notice if I2C messages were still flying about and just the console output halted, or if the MCU was locked up. I didn't have the frame counter fully instrumented so I don't know if the frame counter might have been reset. Unfortunately I never got another error so there were no additional clues from the debug info or gdb inspection in the next 4-1/2 days. I can only add that there were no memory leaks.
 
-Frame Counter behavior: On reset the frame counter resets to 0 and an acquisition is triggered. When the acquisition is complete, the frame counter is incremented. Hence the sensor object's expected frame count value is initialized to 1.
+### Other Thoughts
+
+#### Frame Counter Behavior
+
+On reset the frame counter resets to 0 and an acquisition is triggered. When the acquisition is complete, the frame counter is incremented. Hence the sensor object's expected frame count value is initialized to 1.
+
+#### Interrupt Access Modes
+
+Access modes FASTMODE, LOWPOWERMODE, and ULTRALOWPOWERMODE are intended to be interrupt driven. The IC's timer will trigger an acquisition. Upon completion, the  SCL line is strobed low. The would trigger the MCU's interrupt service routine to  read the sensor data.
+
+I don't think these modes are used in any of the examples. First off, because access mode MASTERCONTROLLEDMODE is typically fast enough where a new acquisition is triggered after each read. Your processing cycle needs to be fast enough that the data doesn't get stale, but not so fast that the acquisition isn't complete (unlikely) which would induce frame and channel errors. Second, you'd have to turn the SCL interrupt off while you do the I2C read. Kind of clunky.
+
+#### Non-fast Examples
+
+The non-fast example sketches go in and out of power down mode. It seemed like a lot of unnecessary I2C buss traffic and  config changes. Fortunately a corrupted message *should* be ignored if parity checks are used. Maybe it reduces power and gives you current sensor data as opposed to slow reads with MASTERCONTROLLEDMODE. Note that updateData() inserts some delay() calls that might also appear  in client code. Anyway, I'll revisit this topic if I need infrequent updates.
+
+------
 
 ## Problem
 
