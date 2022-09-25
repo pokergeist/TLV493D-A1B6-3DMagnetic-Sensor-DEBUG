@@ -1,6 +1,6 @@
 # TLV493D Magnetometer DEBUG
 
-## Into
+## Intro
 
 This repository was created to host debug Arduino code for Infineon's TLD493D magnetometer IC. Various mods have been made which I don't want to go into to the original library.
 
